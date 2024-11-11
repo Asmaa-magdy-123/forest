@@ -85,17 +85,6 @@
       var firesound = document.getElementById("firesound");
       var boom = document.getElementById("boom");
 
-      let maxScroll = calculateMaxScroll();
-
-      function calculateMaxScroll() {
-        return document.documentElement.scrollHeight - window.innerHeight;
-      }
-
-      // Update maxScroll on window resize
-      window.addEventListener("resize", () => {
-        maxScroll = calculateMaxScroll();
-      });
-
       window.addEventListener("scroll", () => {
         firesound.play();
         // console.log(scrollY);
@@ -114,10 +103,7 @@
         }
       });
 
-      // window.addEventListener("scroll", function () {
-
-       
-      // });
+     
     </script>
   </body>
 </html>
