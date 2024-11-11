@@ -85,19 +85,26 @@
       var firesound = document.getElementById("firesound");
       var boom = document.getElementById("boom");
 
-      var maxScroll =
-        document.documentElement.scrollHeight - window.innerHeight;
+      let maxScroll = calculateMaxScroll();
+
+      function calculateMaxScroll() {
+        return document.documentElement.scrollHeight - window.innerHeight;
+      }
+
+      // Update maxScroll on window resize
+      window.addEventListener("resize", () => {
+        maxScroll = calculateMaxScroll();
+      });
 
       window.addEventListener("scroll", () => {
         firesound.play();
-      });
-
-      window.addEventListener("scroll", function () {
-        if (window.scrollY >= 20) {
+        // console.log(scrollY);
+        
+         if (window.scrollY >= 20) {
           var scaleValue = 1 + window.scrollY / 50;
           snow.style.transform = "scale(" + scaleValue + ")";
         }
-        if (window.scrollY === maxScroll) {
+        if (window.scrollY >= 442) {
           another.style.opacity = 0;
           ano.style.opacity = 0;
           backgroundCover.style.opacity = 1;
@@ -106,6 +113,11 @@
           boom.play();
         }
       });
+
+      // window.addEventListener("scroll", function () {
+
+       
+      // });
     </script>
   </body>
 </html>
